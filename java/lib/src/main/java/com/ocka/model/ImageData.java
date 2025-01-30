@@ -1,5 +1,5 @@
 // vim: ts=2
-package com.ocka;
+package com.ocka.model;
 public class ImageData {
 	public int width; // width of image (pixels)
 	public int height; // height of image (pixels)

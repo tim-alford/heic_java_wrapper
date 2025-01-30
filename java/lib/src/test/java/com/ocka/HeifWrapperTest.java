@@ -1,5 +1,7 @@
 // vim: ts=2
 package com.ocka;
+import com.ocka.model.*;
+import com.ocka.heif.*;
 import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat; 
 import static org.hamcrest.Matchers.*;

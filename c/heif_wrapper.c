@@ -1,6 +1,6 @@
 // vim: ts=2
 #include <jni.h>
-#include <com_ocka_HeifWrapper.h>
+#include <com_ocka_heif_HeifWrapper.h>
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -41,7 +41,7 @@ int init(){
 }
 
 int loadClass(JNIEnv* env){
-	jcImageData = (*env)->FindClass(env, "com/ocka/ImageData");
+	jcImageData = (*env)->FindClass(env, "com/ocka/model/ImageData");
  	if (jcImageData == NULL) 
 		return 1;
 	midConstructor = (*env)->GetMethodID(env, jcImageData, "<init>", "()V");
@@ -64,7 +64,7 @@ jobject getImageDataObject(JNIEnv *env){
 	return (*env)->NewObject(env, jcImageData, midConstructor, NULL);
 }
 
-JNIEXPORT jstring JNICALL Java_com_ocka_HeifWrapper_getVersion
+JNIEXPORT jstring JNICALL Java_com_ocka_heif_HeifWrapper_getVersion
   	(JNIEnv * env, jobject obj){
 	// make sure that environment is loaded
 	init();
@@ -72,7 +72,7 @@ JNIEXPORT jstring JNICALL Java_com_ocka_HeifWrapper_getVersion
 	return (*env)->NewStringUTF(env, version);
 }
 
-JNIEXPORT jobject JNICALL Java_com_ocka_HeifWrapper_getImageData
+JNIEXPORT jobject JNICALL Java_com_ocka_heif_HeifWrapper_getImageData
   (JNIEnv * env, jobject this_, jstring jFileName) {
 	// make sure that environment is loaded
 	// load meta data fields from class
